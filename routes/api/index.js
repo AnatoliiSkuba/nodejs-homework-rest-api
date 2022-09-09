@@ -1,3 +1,3 @@
-const contacts = require("./contacts");
+const events = require("./events");
 
-module.exports = { contacts };
+module.exports = { events };
