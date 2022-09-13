@@ -13,6 +13,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/users", routes.api.users);
 app.use("/api/contacts", routes.api.contacts);
 
 app.use((_, res) => {
