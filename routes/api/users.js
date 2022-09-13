@@ -4,7 +4,7 @@ const ctrl = require("../../controllers");
 
 const { ctrlWrapper } = require("../../helpers");
 
-const { validationBody, authenticate } = require("../../middlewares");
+const { validationBody, authenticate, upload } = require("../../middlewares");
 
 const { schemas } = require("../../models/user");
 
@@ -31,6 +31,13 @@ router.patch(
     authenticate,
     validationBody(schemas.updateSubscriptionSchema),
     ctrlWrapper(ctrl.users.updateSubscription)
+);
+
+router.patch(
+    "/avatars",
+    authenticate,
+    upload.single("avatarURL"),
+    ctrlWrapper(ctrl.users.updateAvatar)
 );
 
 module.exports = router;
