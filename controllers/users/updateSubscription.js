@@ -1,5 +1,5 @@
 const { User } = require("../../models");
-const RequestError = require("../../helpers/RequestError");
+const { RequestError } = require("../../helpers");
 
 const updateSubscription = async (req, res) => {
     if (Object.keys(req.body).length === 0) {
